@@ -80,7 +80,7 @@
             { required: true, message: "请输入用户名", trigger: "blur" }
           ],
           password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-          code: [{required: true, message: '请输入验证码', trigger: 'blur'}]
+          code: [{required: true, message: '请输入验证码1', trigger: 'blur'}]
         }
       };
     },
@@ -93,7 +93,7 @@
           this.$refs.loginForm.validate((valid)=>{
               if(valid){
                   this.postRequest("/login",this.loginForm).then((resp)=>{
-                    this.$router.replace('/home');
+                   console.log(resp);
                   })
               }
           })

@@ -49,7 +49,7 @@
       handleSelect (key, keyPath) {
         switch (key) {
           case '1':
-            this.$router.push('/htmlView')
+            this.$router.push('/home')
             break
           case '2':
             this.$router.push('/htmlManage')
