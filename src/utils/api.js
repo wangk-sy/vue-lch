@@ -10,16 +10,22 @@ axios.interceptors.request.use(config=>{
 axios.interceptors.response.use(success => {
     let token=success.headers.token;
     window.sessionStorage.setItem("token",token);
+    if (success.data.code ===401){
+      Message.error({message: '尚未登录，请登录'})
+      router.replace('/');
+      return;
+    }
     if (success.data.msg) {
         Message.success({message: success.data.msg})
     }
     return success.data;
 }, error => {
+  console.log(error.response)
     if (error.response.status == 504 || error.response.status == 404) {
         Message.error({message: '服务器被吃了( ╯□╰ )'})
     } else if (error.response.status == 403) {
         Message.error({message: '权限不足，请联系管理员'})
-    } else if (error.response.status == 401) {
+    } else if (error.response.code == 401) {
         Message.error({message: '尚未登录，请登录'})
         router.replace('/');
     } else {
