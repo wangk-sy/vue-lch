@@ -54,14 +54,14 @@
           </template>
         </el-table-column>
         <el-table-column
-        prop="url"
-        label="网址"
-        align="center"
-        width="550">
+          prop="url"
+          label="网址"
+          align="center"
+          width="550">
           <template slot-scope="scope">
             <a :href="scope.row.url" target="_blank" style="text-decoration: none">{{scope.row.url}}</a>
           </template>
-      </el-table-column>
+        </el-table-column>
         <el-table-column
           fixed="right"
           width="100"
@@ -170,8 +170,8 @@
         this.initHtmls()
       },
       deleteHtml (data) {
-       this.batchDeleteIds=data.id;
-       this.delBulk();
+        this.batchDeleteIds=data.id;
+        this.delBulk();
       },
       delBulk () {
         this.$confirm('此操作将删除选中数据, 是否继续?', '提示', {
