@@ -15,12 +15,12 @@ export default new Router({
       children:[
         {
           path: '/htmlView',
-          name: '网址浏览',
+          name: 'htmlView',
           component: HtmlView
         },
         {
           path: '/htmlManage',
-          name: '网址管理',
+          name: 'htmlManage',
           component: HtmlManage
         }
       ]
